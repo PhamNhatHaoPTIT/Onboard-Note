@@ -6,6 +6,12 @@
 
 ### DI
 
++ hardcode vs dependency injection
+
+### Combine IoC and DI
+
++ IoC comes to the rescue, programmer is relieved of burden
+
 ### IoC container
 
 + create object (spring bean), control, config
