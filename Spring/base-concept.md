@@ -1,3 +1,5 @@
+## Week 1 (23/09 -> 27/09)
+
 ### IoC (Inversion of Control) a principle in SE
 
 + the control of objects of a program transferred to a container or framework (often used in OOP)
