@@ -12,3 +12,5 @@
 + Three types of statement
 
 + ResultSet
+
++ Flow when we interact with JDBC

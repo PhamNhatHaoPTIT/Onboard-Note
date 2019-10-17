@@ -26,4 +26,4 @@
 
 + bean scope: singleton and prototype scope
 
-+ bonus: prototype in singleton bean
++ bonus: nested prototype in singleton bean
