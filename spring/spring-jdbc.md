@@ -29,3 +29,12 @@
   + Isolation
   + Timeout: the time between start transaction and end -> auto rollback
   + Read-only status: 
+
++ Inside @Transactional
+
++ Concept of AOP in Spring
+  + advice
+  + pointcut
+  + joinpoint
+
+
