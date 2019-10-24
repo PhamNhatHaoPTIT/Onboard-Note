@@ -1,4 +1,4 @@
-## Week 1 (23/09 -> 27/09)
+## Week 1 (23/09 -> 27/09) - Spring core concept and principle
 
 ### IoC (Inversion of Control) a principle in SE
 

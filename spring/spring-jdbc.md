@@ -1,4 +1,4 @@
-## Week 3 (07/10 -> 11/10)
+## Week 3 (07/10 -> 11/10) - Core JDBC
 
 ### Concept of JDBC, JDBC driver and relate concept
 
@@ -15,7 +15,7 @@
 
 + Flow when we interact with JDBC
 
-## Week 4 (14/10 -> 18/10)
+## Week 4 (14/10 -> 18/10) - JDBC in Spring - Transaction and relate concept
 
 ### JDBC in Spring framework
 
@@ -26,15 +26,28 @@
 
 + TransactionDefinition:
   + Propagation (scope of a transaction): required, requires_new, nested.
-  + Isolation
+  + Isolation level
   + Timeout: the time between start transaction and end -> auto rollback
   + Read-only status: 
 
 + Inside @Transactional
+  + Transaction work flow
+  + Transaction management (2 type: programmatic and declarative)
+  + Proxy class in @Transactional
+
++ Rollback transaction: 
+  + a/0 -> runtime exception
+  + try-catch -> not rollback
+  + throw new Exception(); 
+  + Unchecked exception -> rollback -> crash app
 
 + Concept of AOP in Spring
   + advice
   + pointcut
   + joinpoint
 
+## Week 5 (21/10 -> 25/10)
 
++ Continue with transaction topic in Spring
+
++ Write test to verify
