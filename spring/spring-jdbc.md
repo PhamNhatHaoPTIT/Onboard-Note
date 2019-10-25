@@ -16,6 +16,9 @@
 + ResultSet
 
 + Flow when we interact with JDBC
+  <div align="center">
+    <img src="media/interact-jdbc.png" />
+  </div>
 
 ## Week 4 - Spring JDBC - Transaction and relates concept
 
@@ -25,14 +28,11 @@
 + Two type of transaction:
   + Local transactions are specific to a single transactional resource like a JDBC connection
   + Global transactions can span multiple transactional resources like transaction in a distributed system.
-  
   <div align="center">
     <img src="media/tx_type.png" />
   </div>
 
-+ Transaction in Spring framework
-
-+ PlatformTransactionManager: a service provider interface (SPI)
++ PlatformTransactionManager - a service provider interface
 
 + TransactionDefinition:
   + Propagation (scope of a transaction): required, requires_new, nested.
@@ -42,14 +42,13 @@
 
 + Inside @Transactional
   + Transaction work flow
-  + Transaction management (2 type: programmatic and declarative)
-  + Proxy class in @Transactional
-
-+ Rollback transaction: 
-  + a/0 -> runtime exception
-  + try-catch -> not rollback
-  + throw new Exception(); 
-  + Unchecked exception -> rollback -> crash app
+    <div align="center">
+        <img src="media/tx-workflow.jpg" />
+    </div>
+  + Transaction management
+    <div align="center">
+        <img src="media/tx-manage.png" />
+    </div>
 
 + Concept of AOP in Spring
   + advice
