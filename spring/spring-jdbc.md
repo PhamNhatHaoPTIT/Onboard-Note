@@ -35,7 +35,10 @@
 + PlatformTransactionManager - a service provider interface
 
 + TransactionDefinition:
-  + Propagation (scope of a transaction): required, requires_new, nested.
+  + Propagation:
+        <div align="center">
+            <img src="media/tx-propagation.png" />
+        </div>
   + Isolation level
   + Timeout: the time between start transaction and end -> auto rollback
   + Read-only status 
