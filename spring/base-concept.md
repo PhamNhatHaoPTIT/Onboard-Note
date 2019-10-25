@@ -1,14 +1,16 @@
-## Week 1 (23/09 -> 27/09) - Spring core concept and principle
+## Week 1 - Spring core concept and principle
 
-### IoC (Inversion of Control) a principle in SE
+### Time 23/09 -> 27/09
 
-+ the control of objects of a program transferred to a container or framework (often used in OOP)
+### Inversion of Control - A principle in Software engineer
+
++ The control of objects of a program transferred to a container or framework (often used in OOP)
 
 + IoC control the flow of a program and make calls to our custom code
 
-### DI
+### Dependency injection
 
-+ hardcode vs dependency injection
++ Hardcode vs dependency injection
 
 ### Combine IoC and DI
 
@@ -16,14 +18,14 @@
 
 ### IoC container
 
-+ create object (spring bean), control, config
++ Create object (spring bean), control, config
 
 ### Spring bean
 
-+ beans are java objects that are managed by the Spring container
++ Beans are java objects that are managed by the Spring container
 
-+ how we can access it? -> BeanFactory and ApplicationContext (includes all functionity of the BeanFactory and much more)
++ How we can access it? -> through BeanFactory or ApplicationContext - includes all functionity of the BeanFactory and much more
 
-+ bean scope: singleton and prototype scope
++ Bean scope: singleton and prototype scope
 
-+ bonus: nested prototype in singleton bean
++ Nested prototype in singleton bean

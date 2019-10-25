@@ -1,13 +1,15 @@
-## Week 3 (07/10 -> 11/10) - Core JDBC
+## Week 3 - Core JDBC
 
-### Concept of JDBC, JDBC driver and relate concept
+### Time 07/10 -> 11/10
 
-+ JDBC -> JDBC drives (we have 4 types)
+### Concept of JDBC, JDBC driver and relates concept
+
++ JDBC -> JDBC drives (4 types)
 
     + JDBC -> ODBC -> DB
-    + native-driver
+    + Native driver
     + JDBC -> middleware -> DB (network protocol driver)
-    + JDBC -> DB (directly), we have 2 advantage and 1 disadvantage
+    + JDBC -> DB (directly), 2 advantage and 1 disadvantage
 
 + Three types of statement
 
@@ -15,11 +17,19 @@
 
 + Flow when we interact with JDBC
 
-## Week 4 (14/10 -> 18/10) - JDBC in Spring - Transaction and relate concept
+## Week 4 - Spring JDBC - Transaction and relates concept
 
-### JDBC in Spring framework
+### Time 14/10 -> 18/10 
 
 + Notice concept: jdbcTemplate, NamedParameterJdbcTemplate, RowMapper interface (create seperate class impl interface to map java bean and sql db) 
++ Two type of transaction:
+  + Local transactions are specific to a single transactional resource like a JDBC connection
+  + Global transactions can span multiple transactional resources like transaction in a distributed system.
+  
+  <div align="center">
+    <img src="media/tx_type.png" />
+  </div>
+
 + Transaction in Spring framework
 
 + PlatformTransactionManager: a service provider interface (SPI)
@@ -28,7 +38,7 @@
   + Propagation (scope of a transaction): required, requires_new, nested.
   + Isolation level
   + Timeout: the time between start transaction and end -> auto rollback
-  + Read-only status: 
+  + Read-only status 
 
 + Inside @Transactional
   + Transaction work flow
@@ -46,7 +56,9 @@
   + pointcut
   + joinpoint
 
-## Week 5 (21/10 -> 25/10)
+## Week 5
+
+### Time 21/10 -> 25/10
 
 + Continue with transaction topic in Spring
 

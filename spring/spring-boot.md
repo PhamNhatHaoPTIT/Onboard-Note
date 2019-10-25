@@ -1,4 +1,6 @@
-## Week 2 (30/09 -> 04/10) - Spring Boot - Auto config Spring
+## Week 2 - Spring Boot
+
+### Time 30/09 -> 04/10
 
 ### Concept of dependency management
 
