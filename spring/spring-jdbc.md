@@ -32,7 +32,7 @@
     <img src="media/tx_type.png" />
   </div>
 
-+ PlatformTransactionManager - a service provider interface
++ PlatformTransactionManager - a service provider interface: This interface will define transaction strategy
 
 + TransactionDefinition:
   + Propagation:
