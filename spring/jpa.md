@@ -5,7 +5,7 @@
 
 + Important concept: 
   + JPA: collection of `classes` and `methods` to persistently store data into database
-  + JPA provider: framework implement of JPA concept such as Hibernate, EclipseLink, Spring data JPA,...
+  + JPA provider: framework implement of JPA concept such as Hibernate, EclipseLink,...
 
 + Concept inside JPA: Core classes and interfaces of JPA: `Persistence` (static method to create entity manager factory) -> `Entity Manager Factory` -> `Entity Manager` -> `Query`, `Entity class` (persistence object, records in the database), `Entity Transaction` (1-1 with entity manager)
 
