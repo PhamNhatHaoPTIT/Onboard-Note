@@ -25,6 +25,15 @@
 ### Time 14/10 -> 18/10 
 
 + Notice concept: jdbcTemplate, NamedParameterJdbcTemplate, RowMapper interface (create seperate class impl interface to map java bean and sql db) 
++ Spring boot dependency: 
+  
+  ```java
+        <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+  ```
+
 + Two type of transaction:
   + Local transactions are specific to a single transactional resource like a JDBC connection
   + Global transactions can span multiple transactional resources like transaction in a distributed system.
