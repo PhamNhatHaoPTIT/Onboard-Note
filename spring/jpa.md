@@ -1,4 +1,4 @@
-## Week 6
+## Week 6 - JPA concept
 
 ### Time 28/10 -> 01/11
 - JPA là gì?
