@@ -7,7 +7,7 @@
 3. Cách sử dụng JPA Repository
 4. Làm sao mình khai báo query bằng method name, mà Spring hiểu và query được?
 
-#### Introduction
+#### Introduction to Spring data JPA
 
 + Spring Data JPA is `not` a JPA provider. It is a `library/framework` that adds an extra layer of abstraction on the top of our JPA provider (like Hibernate).
 
@@ -50,6 +50,20 @@
         <img src="media/tuning-repository.png" />
     </div>
 
++ Bootstrap mode for JPA repository
+  + Default
+  + Lazy
+  + `Deferred`
+
++ Strategies to `detect` if an entity is new or not
+  + Version-Property and Id-Property inspection (default mode)
+  + Implement `Persistable`
+  + Implement `EntityInformation`
+
+    <div align="center">
+        <img src="media/entity-detect.png" />
+    </div>
+
 #### Query method
 
 + Query methods are methods that find information `from the database` and are `declared on the repository` interface.
@@ -81,13 +95,13 @@
 + Query generation from the method name strategy: the invoked query is derived from the name of the query method.
 
 + We can create query methods that use this strategy by following `these rules`:
-  + The `name of query method` must start with one of the following prefixes: find...By, read...By, query...By, count...By, and get...By.
+  + The `name of query method` must start with one of the following prefixes: find...By ( findX called `dynamic finder method`), read...By, query...By, count...By, and get...By.
   + To limit the number of returned query results: add First or Top keyword for exam findTopBy, findTop1By, findFirst1By,...
   + To select unique results: add Distinct keyword for exam findTitleDistinctBy or findDistinctTitleBy,...
 
 + Translate query method
 
-+ Managing the Persistence Context: use @Qualifier
++ Managing the Persistence Context: use mix `@Query` and `@Qualifier`
 
 #### Query lookup strategies
 
@@ -96,3 +110,10 @@
 + Use_Declared_Query
 
 + Create_If_Not_Found (defalut strantegy): combines use_declared_query and create.
+
+#### Query DSL in Spring data JPA
+
++ Spring Data JPA `removes much boilerplate` from repository code and QueryDSL can be used to create `clean and reusable` query specifications. When combined, we can create powerful repositories with very little code.
+
+
++ [Link](http://www.querydsl.com/static/querydsl/latest/reference/html/ch02.html#jpa_integration) guide to use Query DSL in Spring data JPA
