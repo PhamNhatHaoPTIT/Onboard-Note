@@ -111,9 +111,14 @@
 
 + Create_If_Not_Found (defalut strantegy): combines use_declared_query and create.
 
-#### Query DSL in Spring data JPA
+#### QueryDSL in Spring data JPA
 
 + Spring Data JPA `removes much boilerplate` from repository code and QueryDSL can be used to create `clean and reusable` query specifications. When combined, we can create powerful repositories with very little code.
 
++ An API is type safe if it leverages the type system of the programming language to prevent `type errors`. Specifically, QueryDSL enables the compiler to verify that
+  + All classes used in a query exist (no typos ...) and are persistent (i.e. mapped to a database)
+  + All properties used in a query exist for that object, and are persistent
+  + The resulting query is syntactically valid (no missing clauses or keywords)
+  + All operators receive operands of an acceptable type
 
-+ [Link](http://www.querydsl.com/static/querydsl/latest/reference/html/ch02.html#jpa_integration) guide to use Query DSL in Spring data JPA
++ [Link](http://www.querydsl.com/static/querydsl/latest/reference/html/ch02.html#jpa_integration) guide to use QueryDSL in Spring data JPA
