@@ -27,6 +27,21 @@
     <img src="media/repository-hierarchy.png" />
   </div>
 
++ What is spring-data-jpa for actually?
+  + You use @Repository interfaces instead of DAO Implementations
+  + Less boilerplate coding of DAO classes for frequent operations like persisting, finding, listing, etc...
+  + You can define JPA queries by annotations like this:
+    
+    ```java
+        @Query("select p from Product p where p.name = :name")
+    ```
+
+  + Or you can define a query by only keywords inside method names:
+    
+    ```java
+        findByNameContainingIgnoreCase(String searchString);
+    ```
+
 #### Defining repository interface
 
 + Use typical repository: First, define a domain class-specific repository interface and then extend `Repository` (or CrudRepository, JpaRepository)
@@ -72,7 +87,7 @@
         import org.springframework.data.repository.Repository;
  
         interface TodoRepository extends Repository<Todo, Long> {
-            //This is a query method.
+            // This is a query method.
             Todo findById(Long id);
         }
     ```
@@ -109,7 +124,7 @@
 
 + Use_Declared_Query
 
-+ Create_If_Not_Found (defalut strantegy): combines use_declared_query and create.
++ Create_If_Not_Found `(defalut strantegy)`: combines use_declared_query and create.
 
 #### QueryDSL in Spring data JPA
 
