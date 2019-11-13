@@ -62,3 +62,25 @@
   + But,
   + AOP file usually bigger than RDB file
   + OF can be slower than RDB depending on the exact `fsync policy`
+
+#### Introduction to distributed lock
+
++ We have two kinds of locks:
+  + Optimistic: instead of blocking something potentially dangerous happens, we `continue anyway`, in the `hope` that everything will be ok.
+    + To use optimistic lock, we usually use a `version field` on the database record we have to handle, and when we update it, we check if the data we read has the `same version` of the data we are writing.
+        <div align="center">
+            <img src="media/optimistic-lock.png" />
+        </div>
+  + Pessimistic: block access to the resource `before operating on it`, and we `release` the lock at the end.
+    + The pessimistic lock, instead, will `rely on an external system` that will hold the lock for our microservices.
+        <div align="center">
+            <img src="media/pessimistic-lock.png" />
+        </div>
+
+#### Distributed lock with Redis
+
++ In order to acquire the lock, the client performs the following operations:
+  + It gets the `current time` in milliseconds
+  + It tries to acquire the lock in all the N instances sequentially, using the same key name and random value in `all the instances`
+  + The client computes how much time elapsed in order to acquire the lock, by subtracting from the current time the timestamp obtained in step 1
+  + If the lock was acquired, its validity time is considered to be the initial validity time minus the time elapsed, as computed in step 3
