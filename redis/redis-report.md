@@ -82,5 +82,44 @@
 + In order to acquire the lock, the client performs the following operations:
   + It gets the `current time` in milliseconds
   + It tries to acquire the lock in all the N instances sequentially, using the same key name and random value in `all the instances`
-  + The client computes how much time elapsed in order to acquire the lock, by subtracting from the current time the timestamp obtained in step 1
-  + If the lock was acquired, its validity time is considered to be the initial validity time minus the time elapsed, as computed in step 3
+  + The client `computes` how much time elapsed in order to acquire the lock, by subtracting from the current time the timestamp obtained in step 1
+  + If the lock `was acquired`, its validity time is considered to be the initial validity time minus the time elapsed, as computed in step 3
+  + If the client `failed` to acquire the lock for some reason (either it was not able to lock `N/2+1` instances or the validity time is negative), it will try to `unlock all the instances` (even the instances it believed it was not able to lock).
+
+#### Distributed Java collections in Redis with Redisson
+
++ In Java, a `Collection` is a term for any `group of objects`, which are known as the elements of the Collection. The Collection interface describes a general formula for how to implement a specific type of collection. Some examples of collections in Java are:
+  + Map
+  + Set
+  + List
+  + SortedSet
+
++ When working with a `multi-threaded program`, it’s important to make sure that different threads do not access the same collection at the same time. When this occurs, it can result in race conditions, bugs, and other `un-anticipated behavior`.
+
++ In order to address these issues, programmers use `Redisson` and other `distributed frameworks`. Redisson is a Java framework which provides distributed objects and services on top of the Redis server. It allows multiple threads to concurrently access the same collection in Redis.
+
+#### Redis memory optimization
+
+> Redis keeps all its data in memory, and so it is important to optimize memory usage.
+
++ Special encoding for `small aggregate objects`
+
++ Use integer IDs
+  + Use integer ids for objects. Avoid `GUIDs` or `other unique strings` to identify an object
+  + IDs for objects are `likely` to be used in `other data structures` such as lists, sets and sorted sets, and sets have a special encoding called `integer sets`. If your set contains only integers, an IntSet will save you a lot of memory
+
++ Use `integer sets` instead of hashes base sets
+  + IntSet is essentially a `sorted array of numbers`
+  + Inserting or retrieving a number takes O(log N) operations - its basically a binary search
+  + Because this is only used for `small sets`, the amortized cost of the operation is still `O(1)`
+
++ Avoid `small` Strings
+  + String data type has an overhead `about 90 bytes` on a 64-bit machime
+  + If you call `set foo bar` uses about 6 bytes, of which 90 bytes is overhead
+
++ You should use the String data type only if:
+  + The value is at least grater than `100 bytes`
+  + You are storing encoded data in the string
+  + You are using the string data type as an array or a bitset
+
++ Use `lists` instead of dictionaries for small, consistent object
