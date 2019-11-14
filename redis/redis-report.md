@@ -84,7 +84,9 @@
   + It tries to acquire the lock in all the N instances sequentially, using the same key name and random value in `all the instances`
   + The client `computes` how much time elapsed in order to acquire the lock, by subtracting from the current time the timestamp obtained in step 1
   + If the lock `was acquired`, its validity time is considered to be the initial validity time minus the time elapsed, as computed in step 3
-  + If the client `failed` to acquire the lock for some reason (either it was not able to lock `N/2+1` instances or the validity time is negative), it will try to `unlock all the instances` (even the instances it believed it was not able to lock).
+  + If the client `failed` to acquire the lock for some reason (either it was not able to lock `N/2+1` instances or the validity time is negative, it will try to `unlock all the instances` (even the instances it believed it was not able to lock).
+
++ Retry on `failure`: When a client is unable to acquire the lock, it should try again after a `random delay` in order to try to `de-synchronize` multiple clients trying to acquire the lock for the same resource at the same time
 
 #### Distributed Java collections in Redis with Redisson
 
@@ -123,3 +125,7 @@
   + You are using the string data type as an array or a bitset
 
 + Use `lists` instead of dictionaries for small, consistent object
+
+    <div align="center">
+        <img src="media/Redis Memory Optimization Cheat Sheet.jpg" />
+    </div>
