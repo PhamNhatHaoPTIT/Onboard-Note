@@ -1,10 +1,6 @@
 ## Week 6 - JPA concept
 
-### Time 28/10 -> 01/11
-- JPA là gì?
-- Core concepts của JPA e.g. EntityManager
-- Phân biệt được JPA là gì và Hibernate là gì?
-- Hibernate as JPA Provider nghĩa là thế nào
+### Time 28/10 - 01/11
 
 + Important concept: 
   + JPA: collection of `classes` and `methods` to persistently store data into database

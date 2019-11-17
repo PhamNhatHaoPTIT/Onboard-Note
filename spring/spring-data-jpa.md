@@ -1,11 +1,6 @@
 ## Week 7 - Spring data JPA
 
-### Time 4/11 -> 8/11
-
-1. Spring Data JPA là gì?
-2. Spring giúp mình những gì?
-3. Cách sử dụng JPA Repository
-4. Làm sao mình khai báo query bằng method name, mà Spring hiểu và query được?
+### Time 4/11 - 8/11
 
 #### Introduction to Spring data JPA
 

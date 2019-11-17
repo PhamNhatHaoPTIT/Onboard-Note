@@ -1,6 +1,6 @@
 ## Week 8 - Redis
 
-### Time 11/11 -> 15/11
+### Time 11/11 - 15/11
 
 + Cho service A cung cấp API ping, đồng thời có 1 counter để đếm số lần gọi của API này, mỗi lần api này đc gọi a tăng counter này lên, định kì mỗi 5 phút a cập nhật counter này xuống DB
 
@@ -58,7 +58,7 @@
 
 + The AOF (Append Only File): logs every time operation received by server.
   + Using AOF Redis is much `more durable`
-  + he AOF log is an `append` only log, so there are `no seeks`
+  + The AOF log is an `append` only log, so there are `no seeks`
   + But,
   + AOP file usually bigger than RDB file
   + OF can be slower than RDB depending on the exact `fsync policy`
@@ -125,6 +125,8 @@
   + You are using the string data type as an array or a bitset
 
 + Use `lists` instead of dictionaries for small, consistent object
+
++ Use Bitmaps to encode data
 
     <div align="center">
         <img src="media/Redis Memory Optimization Cheat Sheet.jpg" />

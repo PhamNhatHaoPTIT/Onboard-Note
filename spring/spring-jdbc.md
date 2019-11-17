@@ -1,8 +1,8 @@
 ## Week 3 - Core JDBC
 
-### Time 07/10 -> 11/10
+### Time 07/10 - 11/10
 
-### Concept of JDBC, JDBC driver and relates concept
+#### Concept of JDBC, JDBC driver and relates concept
 
 + JDBC -> JDBC drives (4 types)
 
@@ -22,7 +22,7 @@
 
 ## Week 4 - Spring JDBC - Transaction and relates concept
 
-### Time 14/10 -> 18/10 
+### Time 14/10 - 18/10 
 
 + Notice concept: jdbcTemplate, NamedParameterJdbcTemplate, RowMapper interface (create seperate class impl interface to map java bean and sql db) 
 + Spring boot dependency: 
@@ -69,7 +69,7 @@
 
 ## Week 5
 
-### Time 21/10 -> 25/10
+### Time 21/10 - 25/10
 
 + Continue with transaction topic in Spring
 
