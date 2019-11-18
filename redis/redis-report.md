@@ -8,7 +8,7 @@
 
 #### Introduction to Redis
 
-+ Redis is often introducted as a  `data structures server`. Redis is an open source, advanced key-value store and an apt solution for building high performance.
++ Redis is often introducted as a `data structures server`. Redis is an open source, advanced key-value store and an apt solution for building high performance.
 
 #### Redis data types
 
@@ -131,3 +131,20 @@
     <div align="center">
         <img src="media/Redis Memory Optimization Cheat Sheet.jpg" />
     </div>
+
+#### Data serialization in Redisson
+
++ Add config mode before create Redis client:
+
+    ```java
+        Config config = new Config();
+        config.setCodec(new FstCodec());
+    ```
+
++ Mode Json Jackson
+  + Use @JsonProperty(value = "") to map between properties in Java class and field in Redis
+  + Remove/Add a field in Java object: first, get old data in Redis and then re-write value with field changes
+
++ Mode FST (fast-serialization)
+  + Change field name, remove field
+  + Add new field: create new class and delete old bucket in Redis
