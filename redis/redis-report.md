@@ -2,10 +2,6 @@
 
 ### Time 11/11 - 15/11
 
-+ Cho service A cung cấp API ping, đồng thời có 1 counter để đếm số lần gọi của API này, mỗi lần api này đc gọi a tăng counter này lên, định kì mỗi 5 phút a cập nhật counter này xuống DB
-
-+ Deploy service này với 2 instances, implement hàm ping sau cho phần counter luôn đếm đúng số lần gọi
-
 #### Introduction to Redis
 
 + Redis is often introducted as a `data structures server`. Redis is an open source, advanced key-value store and an apt solution for building high performance.
@@ -147,4 +143,4 @@
 
 + Mode FST (fast-serialization)
   + Change field name, remove field
-  + Add new field: create new class and delete old bucket in Redis
+  + Add new field: create new class (add new field), get and delete old bucket in Redis, store new bucket with new class
