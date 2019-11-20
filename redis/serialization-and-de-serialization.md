@@ -61,13 +61,21 @@
 + Serizalization
 
     <div align="center">
-        <img src="media/serialization-benchmark.png">
+        <img src="media/1.png">
+    </div>
+
+    <div align="center">
+        <img src="media/2.png">
     </div>
 
 + Deserialization
 
     <div align="center">
-        <img src="media/de-serialization-benchmark.png">
+        <img src="media/3.png">
+    </div>
+
+    <div align="center">
+        <img src="media/4.png">
     </div>
 
 + The link simple project to verify can be found [here](https://github.com/PhamNhatHaoPTIT/Onboard/tree/master/java-serialization)
