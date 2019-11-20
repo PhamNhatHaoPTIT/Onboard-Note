@@ -56,19 +56,18 @@
   + You cannot alter the `position of the class` in the class hierarchy. Since the fully-qualified class name is written as part of the bytestream, this change will result in the creation of an incompatible stream.
   + You cannot change the `name of the class` or the `package it belongs` to, as that information is written to the stream during serialization.
 
-#### Data serialization in Redisson
+#### Compare serializable time
 
-+ Add config mode before create Redis client:
++ Serizalization
 
-    ```java
-        Config config = new Config();
-        config.setCodec(new FstCodec());
-    ```
+    <div align="center">
+        <img src="media/serialization-benchmark.png">
+    </div>
 
-+ Mode Json Jackson
-  + Use @JsonProperty(value = "") to map between properties in Java class and field in Redis
-  + Remove/Add a field in Java object: first, get old data in Redis and then re-write value with field changes
++ Deserialization
 
-+ Mode FST (fast-serialization)
-  + Change field name, remove field
-  + Add new field: create new class (add new field), get and delete old bucket in Redis, store new bucket with new class
+    <div align="center">
+        <img src="media/de-serialization-benchmark.png">
+    </div>
+
++ The link simple project to verify can be found [here](https://github.com/PhamNhatHaoPTIT/Onboard/tree/master/java-serialization)
