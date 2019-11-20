@@ -127,20 +127,3 @@
     <div align="center">
         <img src="media/Redis Memory Optimization Cheat Sheet.jpg" />
     </div>
-
-#### Data serialization in Redisson
-
-+ Add config mode before create Redis client:
-
-    ```java
-        Config config = new Config();
-        config.setCodec(new FstCodec());
-    ```
-
-+ Mode Json Jackson
-  + Use @JsonProperty(value = "") to map between properties in Java class and field in Redis
-  + Remove/Add a field in Java object: first, get old data in Redis and then re-write value with field changes
-
-+ Mode FST (fast-serialization)
-  + Change field name, remove field
-  + Add new field: create new class (add new field), get and delete old bucket in Redis, store new bucket with new class
