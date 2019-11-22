@@ -34,7 +34,7 @@
   + Brokers - workers that take data from the producers and `send it` to the consumers. They handle replication as well.
   + Partitions - the `physical divisions` of a topic. They are used for redundancy as partitions are spread over different storage servers.
   + Topics - categories for messages.
-  + Zookeeper - used to` start services` in distributed systems. So it is `not part of Kafka`, but is needed by Kafka.
+  + Zookeeper - used to `start services` in distributed systems. So it is `not part of Kafka`, but is needed by Kafka.
 
     <div align="center">
         <img src="media/kafka-basic-concepts.png" />
