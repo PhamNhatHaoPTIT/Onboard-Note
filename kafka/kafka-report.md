@@ -49,6 +49,11 @@
         <img src="media/kafka-basic-concepts.png" />
     </div>
 
++ Producer will decide target partition to place any message, depending on
+  + Partition id, if it's `specified` within the message
+  + `key % num partitions`, if no partition id is mentioned
+  + `Round robin` if neither partition id nor message key are available in message, meaning only value is available
+
 #### Four features of Kafka
 
 + Distributed: Kafka is distributed in the sense that it `stores`, `receives` and `sends` messages on `different nodes` (called brokers)
@@ -80,11 +85,25 @@
   + Kafka `does not keep track of` what records are read by the consumer and delete them but rather stores them a set amount of time (e.g one day) or until some size threshold is met.
   + Consumers themselves `poll` Kafka for new messages and say what records they want to read.
 
-+ Consumer groups which have `one or more` consumer processes inside. In order to avoid two processes reading the `same message twice`, each partition is `tied to only one consumer process` per group.
++ Consumer groups which have `one or more` consumer processes inside. In order to avoid two processes reading the `same message twice`, each partition is `tied to only one consumer process` per group. These are the `possible scenarios`
 
-    <div align="center">
-        <img src="media/consumer-group.png" />
-    </div>
+    + Number of consumers is `less than` number of topic partitions then multiple partitions can be assigned to one of the consumer in the group
+
+        <div align="center">
+            <img src="media/less-than.png" />
+        </div>
+
+    + Number of consumers `same` as number of topic partitions, then partition and consumer mapping can be like below
+
+        <div align="center">
+            <img src="media/same.png" />
+        </div>
+
+    + Number of consumers is `higher than` number of topic partitions, then partition and consumer mapping can be as seen below, Not effective, check Consumer 5
+
+        <div align="center">
+            <img src="media/higher.png" />
+        </div>
 
 #### Data Replication
 
