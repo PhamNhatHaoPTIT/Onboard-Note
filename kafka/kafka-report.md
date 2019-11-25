@@ -1,10 +1,18 @@
-## Week 9 - Kafka
+<h1> Week 9 - Kafka </h1>
 
-### Time 21/11 - 30/11
+<h2> Time 21/11 - 30/11 </h2>
+
++ Table of contents
+  - [Messaging system](#messaging-system)
+  - [Introduction to Kafka](#introduction-to-kafka)
+  - [Four features of Kafka](#four-features-of-kafka)
+  - [How does Kafka work?](#how-does-kafka-work)
+  - [Data Replication](#data-replication)
+  - [Kafka command](#kafka-command)
 
 #### Messaging system
 
-+ A messaging system is responsible for `transferring data` from one application to another, so the applications can focus on data, but not worry about how to share it.
++ A messaging system is responsible for `transferring data` from one application to another, so the applications can `focus` on data, but not worry about `how` to share it.
 
 + Point to point messaging system
   + Messages are persisted in a `queue`. 
@@ -29,7 +37,7 @@
 + Kafka is a `distributed streaming platform`. It is designed to send data from one server to another in a `fault-tolerant`, `high-capacity` way and, depending on the configuration, verify the receipt of sent data.
 
 + Kafka concepts
-  + Producers - consume the data feed and send it to Kafka for distribution to consumers.
+  + Producers - consume the data feed and send it to Kafka for distribution to consumers. The producer is responsible for `choosing which record` to assign to which `partition` within the topic. This can be done in a `round-robin` fashion simply to balance load
   + Consumers - applications that subscribe to topics.
   + Brokers - workers that take data from the producers and `send it` to the consumers. They handle replication as well.
   + Partitions - the `physical divisions` of a topic. They are used for redundancy as partitions are spread over different storage servers.
@@ -40,13 +48,20 @@
         <img src="media/kafka-basic-concepts.png" />
     </div>
 
-+ Four feature of Kafka: `distributed`, `horizontally-scalable`, `fault-tolerant` and `commit log`.
-  + Distributed
-  + Horizontally-scalable
-  + Fault-tolerant
-  + Commit log: The log helps replicate data between nodes and acts as a re-syncing mechanism for `failed nodes` to restore their data. 
+#### Four features of Kafka
 
-#### How does it work?
++ Distributed: Kafka is distributed in the sense that it `stores`, `receives` and `sends` messages on `different nodes` (called brokers)
+
++ Horizontally-scalable
+    <div align="center">
+        <img src="media/scale-type.png" />
+    </div>
+
++ Fault-tolerant: In a `5-node` Kafka cluster, you can have it continue working even if `2 of the nodes are down.`
+
++ Commit log: The log helps replicate data between nodes and acts as a re-syncing mechanism for `failed nodes` to restore their data. 
+
+#### How does Kafka work?
 
 + Applications (producers) send messages (records) to a Kafka node (broker) and said messages are processed by other applications called consumers. Said messages get stored in a topic and consumers subscribe to the topic to receive new messages.
 
@@ -54,7 +69,7 @@
         <img src="media/kafka-work.png" />
     </div>
 
-+ As topics can get `quite big`, they get split into partitions of a smaller size for better performance and scalability. Kafka guarantees that all messages inside a partition are ordered in the sequence they came in. The way you distinct a specific message is through its offset, which you could look at as a normal array index, a sequence number which is incremented for each new message in a partition.
++ As topics can get `quite big`, they get split into `partitions` of a smaller size for better performance and scalability. Kafka guarantees that all messages inside a partition are ordered in the sequence they came in. The way you distinct a specific message is through its offset, which you could look at as a normal array index, a sequence number which is incremented for each new message in a partition.
 
     <div align="center">
         <img src="media/log_anatomy.png" />
@@ -69,3 +84,75 @@
     <div align="center">
         <img src="media/consumer-group.png" />
     </div>
+
+#### Data Replication
+
++ Partition data is replicated across `multiple brokers` in order to preserve the data in case one `broker dies.`
+
++ One broker owns a partition and is the node through which applications `write/read` from the partition. This is called a partition `leader`. It replicates the data it receives to `N other brokers`, called `followers` - they store the data as well and are ready to be `elected` as leader in case the leader node dies.
+
+    <div align="center">
+        <img src="media/leader-partition.png" />
+    </div>
+
++ The information of all leaders partition for each broker are provided by Zookeeper
+
+#### Kafka command
+
++ Start Zookeeper
+
+    ```sh
+        bin/zookeeper-server-start.sh config/zookeeper.properties
+    ```
+
++ Start Kafka
+
+    ```sh
+        bin/kafka-server-start.sh config/name-of-server.properties
+    ```
+
++ List all Kafka brokers
+
+    ```sh
+        bin/zookeeper-shell.sh localhost:2181 ls /brokers/ids
+    ```
+
++ Work with topics
+
+    ```sh
+        # create a topic
+        bin/kafka-topics.sh --create --bootstrap-server localhost:9092 --replication-factor 3 --partitions 3 --topic name-of-topic
+    ```
+
+    ```sh
+        # list all topic
+        bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+    ```
+
+    ```sh
+        # delete a topic
+        bin/kafka-topics.sh --delete --bootstrap-server localhost:9094 --topic name-of-topic
+    ```
+
+    ```sh
+        # show information of a topic
+        bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic name-of-topic
+    ```
+
++ Producer and consumer
+
+    ```sh
+        bin/kafka-console-producer.sh --broker-list localhost:9092 --topic name-of-topic
+    ```
+
+    ```sh
+        bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic name-of-topic --from-beginning
+    ```
+
+    ```sh
+        # show all consumer groups
+        bin/kafka-consumer-groups.sh  --list --bootstrap-server localhost:9092
+
+        # show information of a consumer group
+        bin/kafka-consumer-groups.sh --describe --group consumerGroup10 --bootstrap-server localhost:9093
+    ```
