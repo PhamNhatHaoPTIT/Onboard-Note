@@ -2,13 +2,14 @@
 
 <h2> Time 21/11 - 30/11 </h2>
 
-+ Table of contents
-  - [Messaging system](#messaging-system)
-  - [Introduction to Kafka](#introduction-to-kafka)
-  - [Four features of Kafka](#four-features-of-kafka)
-  - [How does Kafka work?](#how-does-kafka-work)
-  - [Data Replication](#data-replication)
-  - [Kafka command](#kafka-command)
+<h3> Table of contents </h3>
+
+- [Messaging system](#messaging-system)
+- [Introduction to Kafka](#introduction-to-kafka)
+- [Four features of Kafka](#four-features-of-kafka)
+- [How does Kafka work?](#how-does-kafka-work)
+- [Data Replication](#data-replication)
+- [Kafka command](#kafka-command)
 
 #### Messaging system
 

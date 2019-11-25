@@ -2,12 +2,13 @@
 
 <h2> Time 4/11 - 8/11 </h2>
 
-+ Table of contents
-  - [Introduction to Spring data JPA](#introduction-to-spring-data-jpa)
-  - [Defining repository interface](#defining-repository-interface)
-  - [Query method](#query-method)
-  - [Query lookup strategies](#query-lookup-strategies)
-  - [QueryDSL in Spring data JPA](#querydsl-in-spring-data-jpa)
+<h3> Table of contents </h3>
+
+- [Introduction to Spring data JPA](#introduction-to-spring-data-jpa)
+- [Defining repository interface](#defining-repository-interface)
+- [Query method](#query-method)
+- [Query lookup strategies](#query-lookup-strategies)
+- [QueryDSL in Spring data JPA](#querydsl-in-spring-data-jpa)
 
 #### Introduction to Spring data JPA
 

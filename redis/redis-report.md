@@ -2,14 +2,15 @@
 
 <h2> Time 11/11 - 15/11 </h2>
 
-+ Table of contents
-  - [Introduction to Redis](#introduction-to-redis)
-  - [Redis data types](#redis-data-types)
-  - [Redis persistence](#redis-persistence)
-  - [Introduction to distributed lock](#introduction-to-distributed-lock)
-  - [Distributed lock with Redis](#distributed-lock-with-redis)
-  - [Distributed Java collections in Redis with Redisson](#distributed-java-collections-in-redis-with-redisson)
-  - [Redis memory optimization](#redis-memory-optimization)
+<h3> Table of contents </h3>
+
+- [Introduction to Redis](#introduction-to-redis)
+- [Redis data types](#redis-data-types)
+- [Redis persistence](#redis-persistence)
+- [Introduction to distributed lock](#introduction-to-distributed-lock)
+- [Distributed lock with Redis](#distributed-lock-with-redis)
+- [Distributed Java collections in Redis with Redisson](#distributed-java-collections-in-redis-with-redisson)
+- [Redis memory optimization](#redis-memory-optimization)
 
 #### Introduction to Redis
 
