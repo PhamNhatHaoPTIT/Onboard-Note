@@ -54,6 +54,13 @@
   + `key % num partitions`, if no partition id is mentioned
   + `Round robin` if neither partition id nor message key are available in message, meaning only value is available
 
++ Other key concepts
+  + Cluster: collection of brokers
+  + Controller: functionality within each broker, responsible for leader assignment and management
+  + Replica: partition copy, represented by the broker-id
+  + Assigned replicas: set of all replicas for a partition
+  + ISR - In-Sync Replica: subset of assigned replicas that are in-sync with the leader
+
 #### Four features of Kafka
 
 + Distributed: Kafka is distributed in the sense that it `stores`, `receives` and `sends` messages on `different nodes` (called brokers)
