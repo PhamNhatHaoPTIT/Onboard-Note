@@ -1,6 +1,14 @@
-## Week 1 - Spring core concept and principle
+<h1> Week 1 - Spring core concept and principle </h1>
 
-### Time 23/09 - 27/09
+<h2> Time 23/09 - 27/09 </h2>
+
+<h3> Table of contents </h3>
+
+- [Inversion of Control - A principle in Software engineer](#inversion-of-control---a-principle-in-software-engineer)
+- [Dependency injection](#dependency-injection)
+- [Inversion of Control and Dependency Injection playing together](#inversion-of-control-and-dependency-injection-playing-together)
+- [The Spring IoC container](#the-spring-ioc-container)
+- [Spring bean](#spring-bean)
 
 #### Inversion of Control - A principle in Software engineer
 
