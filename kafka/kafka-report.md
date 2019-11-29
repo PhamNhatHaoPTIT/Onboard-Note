@@ -1,6 +1,6 @@
-<h1> Week 9 - Kafka </h1>
+<h1> Week 9 + Week 10 - Kafka </h1>
 
-<h2> Time 21/11 - 30/11 </h2>
+<h2> Time 21/11 -29/11 </h2>
 
 <h3> Table of contents </h3>
 
@@ -9,6 +9,7 @@
 - [Four features of Kafka](#four-features-of-kafka)
 - [How does Kafka work?](#how-does-kafka-work)
 - [Data Replication](#data-replication)
+- [Zookeeper](#zookeeper)
 - [Kafka command](#kafka-command)
 
 #### Messaging system
@@ -123,6 +124,12 @@
     </div>
 
 + The information of all leaders partition for each broker are provided by Zookeeper
+
+#### Zookeeper
+
++ Zookeeper is a distributed `key-value store` 
+
++ It is `highly-optimized for reads` but writes are slower
 
 #### Kafka command
 
